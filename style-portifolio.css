@@ -1,278 +1,491 @@
 
-<!DOCTYPE html>
-<html lang="pt-BR">
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+body {
+    background-color: #101010;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+/* CABEÇALHO */
+
+header {
+    width: 100%;
+    padding: 25px 8%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #151515;
+}
+
+/* LOGO */
+
+.logo {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #D4AF37;
+}
+
+/* MENU */
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    position: relative;
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
 
-    <title>Alex Sandro | Portfólio</title>
+nav a:hover {
+    color: #D4AF37;
+}
 
-    <link rel="stylesheet" href="style-portifolio.css">
-</head>
+/* EFEITO DOS LINKS DO MENU */
 
-<body>
-    <!-- CABEÇALHO -->
-    <header>
-        <a href="#inicio" class="logo">
-            ALEX SANDRO<span>.</span>
-        </a>
+nav a {
+    position: relative;
+}
 
-        <nav aria-label="Navegação principal">
-            <a href="#inicio">Início</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#projetos">Projetos</a>
-            <a href="#contato">Contato</a>
-        </nav>
+nav a::after {
+    content: "";
+    position: absolute;
 
-    </header>
+    width: 0;
+    height: 2px;
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main>
+    background-color: #D4AF37;
 
-        <!-- PRIMEIRA TELA -->
-        <section id="inicio" class="inicio">
+    left: 0;
+    bottom: -6px;
 
-            <div class="apresentacao">
+    transition: width 0.3s;
+}
 
-                <p class="subtitulo">
-                    DESENVOLVEDOR WEB EM FORMAÇÃO
-                </p>
+nav a:hover::after {
+    width: 100%;
+}
+nav a:focus-visible,
+.botao:focus-visible,
+.redes-sociais a:focus-visible {
+    outline: 2px solid #D4AF37;
+    outline-offset: 5px;
+}
 
-                <h1>
-                    Transformando ideias em experiências digitais.
-                </h1>
+/* APRESENTAÇÃO PRINCIPAL */
 
-                <p class="descricao">
-                    Olá! Sou Alex Sandro. Gosto de tecnologia,
-                    desenvolvimento web e criação de projetos
-                    que unem funcionalidade e criatividade.
-                </p>
+.inicio {
+    min-height: 85vh;
+    padding: 60px 8%;
 
-                <a href="#projetos" class="botao">
-                    Conheça meus projetos
-                </a>
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-            </div>
+    gap: 50px;
+    flex-wrap: wrap;
+}
 
-            <div class="foto-perfil">
+/* TEXTOS */
 
-                <img src="img/foto-perfil.png"
-                     alt="Foto de Alex Sandro">
+.apresentacao {
+    max-width: 600px;
+}
 
-            </div>
+.subtitulo {
+    color: #D4AF37;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
 
-        </section>
-        
-<!-- SEÇÃO SOBRE MIM -->
+.apresentacao h1 {
+    font-size: 52px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
 
-<section id="sobre" class="sobre">
+.descricao {
+    color: #aaaaaa;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
 
-    <div class="sobre-conteudo">
+/* BOTÃO */
 
-        <p class="subtitulo">CONHEÇA UM POUCO SOBRE MIM</p>
+.botao {
+    display: inline-block;
 
-        <h2>Aprendizado, criatividade e evolução.</h2>
+    background-color: #D4AF37;
+    color: #101010;
 
-        <p>
-            Sou apaixonado por tecnologia e criação digital.
-            Atualmente, estou desenvolvendo minhas habilidades
-            em desenvolvimento web e design, criando projetos
-            pessoais para transformar ideias em experiências
-            digitais.
-        </p>
+    padding: 15px 28px;
 
-        <p>
-            Meu objetivo é continuar aprendendo, evoluindo
-            e desenvolvendo soluções criativas e funcionais.
-        </p>
+    text-decoration: none;
+    font-weight: bold;
 
-    </div>
+    border-radius: 5px;
+    transition: 0.3s;
+}
 
-    <div class="habilidades">
+.botao:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+}
 
-        <h3>Minhas habilidades</h3>
+/* FOTOGRAFIA */
 
-        <div class="habilidade-item">
-            <span>HTML5</span>
-        </div>
+.foto-perfil img {
+    width: 350px;
+    height: 430px;
 
-        <div class="habilidade-item">
-            <span>CSS3</span>
-        </div>
+    object-fit: cover;
 
-        <div class="habilidade-item">
-            <span>Adobe Photoshop</span>
-        </div>
+    border-radius: 12px;
+    border: 2px solid #D4AF37;
+}
 
-    </div>
 
-</section>
+/* SEÇÃO SOBRE MIM */
 
-<!-- SEÇÃO DE PROJETOS -->
+.sobre {
+    padding: 100px 8%;
 
-<section id="projetos" class="projetos">
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    <div class="projetos-titulo">
+    gap: 80px;
 
-        <p class="subtitulo">MEU TRABALHO</p>
+    background-color: #151515;
+}
 
-        <h2>Projetos que transformam ideias em realidade.</h2>
+/* CONTEÚDO SOBRE */
 
-        <p>
-            Conheça alguns dos projetos que desenvolvi
-            durante minha jornada de aprendizado.
-        </p>
+.sobre-conteudo {
+    max-width: 600px;
+}
 
-    </div>
+.sobre-conteudo h2 {
+    font-size: 38px;
+    margin-bottom: 25px;
+}
 
-    <div class="projetos-container">
+.sobre-conteudo p {
+    color: #aaaaaa;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
 
-        <!-- PROJETO 1 -->
+/* HABILIDADES */
 
-        <div class="projeto-card">
+.habilidades {
+    width: 350px;
+}
 
-            <div class="projeto-imagem">
-                <img src="img/imperio-barber.png"
-                     alt="Projeto Império Barber">
-            </div>
+.habilidades h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
 
-            <div class="projeto-info">
+/* ITENS DE HABILIDADE */
 
-                <h3>Império Barber</h3>
+.habilidade-item {
+    padding: 18px 20px;
+    margin-bottom: 15px;
 
-                <p>
-                    Projeto visual de um site para uma
-                    barbearia fictícia, desenvolvido com
-                    HTML5 e CSS3.
-                </p>
+    background-color: #202020;
 
-                <span>HTML5 | CSS3 | Photoshop</span>
+    border-left: 3px solid #D4AF37;
 
-            </div>
+    transition: 0.3s;
+}
 
-        </div>
+.habilidade-item span {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+}
 
-        <!-- PROJETO 2 -->
+.habilidade-item:hover {
+    background-color: #292929;
+    transform: translateX(8px);
+}
 
-        <div class="projeto-card">
+/* SEÇÃO DE PROJETOS */
 
-            <div class="projeto-imagem">
-                <img src="img/black-burguer-banner.png"
-                     alt="Segundo projeto do portfólio">
-            </div>
+.projetos {
+    padding: 100px 8%;
+    background-color: #101010;
+}
 
-            <div class="projeto-info">
+/* TÍTULO DA SEÇÃO */
 
-                <h3>Black Burguer Premium</h3>
+.projetos-titulo {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
 
-                <p>
-                    Hamburgueria com variedade de lanches, e combos. Destaques e ofertas na página.
-                </p>
+.projetos-titulo h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
 
-                <span>HTML5 | CSS3</span>
+.projetos-titulo p {
+    color: #aaaaaa;
+    line-height: 1.7;
+}
 
-            </div>
+/* CONTAINER DOS CARTÕES */
 
-        </div>
-
-        <!-- PROJETO 3 -->
-
-        <div class="projeto-card">
-
-            <div class="projeto-imagem">
-                <img src="img/projeto-03.jpg"
-                     alt="Terceiro projeto do portfólio">
-            </div>
-
-            <div class="projeto-info">
-
-                <h3>Projeto em desenvolvimento</h3>
-
-                <p>
-                    Mais um espaço reservado para
-                    apresentar meus trabalhos.
-                </p>
-
-                <span>HTML5 | CSS3</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- SEÇÃO DE CONTATO -->
-
-<section id="contato" class="contato">
-
-    <div class="contato-conteudo">
-
-        <p class="subtitulo">VAMOS CONVERSAR?</p>
-
-        <h2>Tem uma ideia ou projeto em mente?</h2>
-
-        <p>
-            Estou aberto a oportunidades, parcerias
-            e novos desafios. Entre em contato comigo!
-        </p>
-
-        <a href="mailto:alex.sandro.dos.santos159@gmail.com" class="botao">
-            Enviar um e-mail
-        </a>
-
-    </div>
-
-</section>
-
-    </main>
-
-<!-- RODAPÉ -->
-
-<footer class="rodape">
-
-    <div class="rodape-conteudo">
-
-        <a href="#inicio" class="logo">
-            ALEX SANDRO<span>.</span>
-        </a>
-
-
-        
-        <div class="redes-sociais">
-
-            <a href="https://github.com/AlexSandro233"
-            target="_blank"
-            rel="noopener noreferrer">
-                GitHub
-            </a>
-
-            <!-- <a href="https://www.linkedin.com/in/alex-sandro-dos-santos-5a2408170/"
-            target="_blank"
-            rel="noopener noreferrer">
-                LinkedIn
-            </a>
-
-            <a href="https://www.workana.com/freelancer/7fecaada188223071b6bdd26df750cc5"
-            target="_blank"
-            rel="noopener noreferrer">
-                Workana
-            </a> -->
-
-        </div>
-
-
-
-        <p class="copyright">
-            © 2026 Alex Sandro. Todos os direitos reservados.
-        </p>
-
-    </div>
-
-</footer>
-
-</body>
-
-</html>
+.projetos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* CARTÃO INDIVIDUAL */
+
+.projeto-card {
+    width: 320px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #292929;
+    transition: 0.3s;
+}
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.projeto-card:hover {
+    transform: translateY(-10px);
+    border-color: #D4AF37;
+}
+
+/* IMAGEM DO PROJETO */
+
+.projeto-imagem {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.projeto-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.projeto-card:hover .projeto-imagem img {
+    transform: scale(1.08);
+}
+
+/* INFORMAÇÕES */
+
+.projeto-info {
+    padding: 25px;
+}
+
+.projeto-info h3 {
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.projeto-info p {
+    color: #aaaaaa;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.projeto-info span {
+    color: #D4AF37;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* SEÇÃO DE CONTATO */
+
+.contato {
+    padding: 110px 8%;
+    background-color: #151515;
+    text-align: center;
+}
+
+/* CONTEÚDO */
+
+.contato-conteudo {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contato h2 {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.contato p {
+    color: #aaaaaa;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+/* RODAPÉ */
+
+.rodape {
+    padding: 45px 8%;
+    background-color: #101010;
+    border-top: 1px solid #292929;
+    text-align: center;
+}
+
+.rodape-conteudo p {
+    color: #aaaaaa;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.rodape-conteudo .copyright {
+    color: #666666;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+/* REDES SOCIAIS */
+
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.redes-sociais a {
+    color: #D4AF37;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.redes-sociais a:hover {
+    color: #ffffff;
+}
+
+/* RESPONSIVIDADE - TABLETS E CELULARES */
+
+@media (max-width: 768px) {
+
+    /* CABEÇALHO */
+
+    header {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* APRESENTAÇÃO */
+
+    .inicio {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 6%;
+    }
+
+    .apresentacao h1 {
+        font-size: 36px;
+    }
+
+    .foto-perfil img {
+        width: 280px;
+        height: 350px;
+    }
+
+    /* SOBRE MIM */
+
+    .sobre {
+        flex-direction: column;
+        gap: 40px;
+        padding: 70px 6%;
+    }
+
+    .habilidades {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    /* PROJETOS */
+
+    .projetos {
+        padding: 70px 6%;
+    }
+
+    .projetos-titulo h2 {
+        font-size: 30px;
+    }
+
+    .projeto-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* CONTATO */
+
+    .contato {
+        padding: 80px 6%;
+    }
+
+    .contato h2 {
+        font-size: 30px;
+    }
+
+}
+@media (max-width: 400px) {
+
+    .apresentacao h1 {
+        font-size: 30px;
+    }
+
+    .foto-perfil img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+}
