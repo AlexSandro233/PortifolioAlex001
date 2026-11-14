@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+h6{
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 0px;
+    background-color: #000;
+    color: #fff;   
+    font-size: 12px;
+}
