@@ -142,7 +142,7 @@ nav a:focus-visible,
     color: #101010;
 
     padding: 15px 28px;
-
+    text-transform: uppercase;
     text-decoration: none;
     font-weight: bold;
 
@@ -351,6 +351,7 @@ nav a:focus-visible,
     background-color: #b8941f;
     transform: translateY(-3px);
 }
+
 /* SEÇÃO DE CONTATO */
 
 .contato {
